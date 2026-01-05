@@ -1,4 +1,4 @@
-# stdex
+# Stdex Library
 
 **Stdex** is a header-only C++ library providing post-C++14 features for C++14 compilers. 
 
