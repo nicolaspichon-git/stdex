@@ -1,0 +1,3 @@
+[submodule "external/eggs"]
+	path = external/eggs
+	url = https://github.com/eggs-cpp/invoke.git
