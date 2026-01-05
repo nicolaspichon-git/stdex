@@ -18,7 +18,7 @@
 #   define STDEX_USE_STDNS
 #   include <utility>
 #else
-//  until c++14 :
+//  until c++14:
 #   include <type_traits>
 #endif
 
