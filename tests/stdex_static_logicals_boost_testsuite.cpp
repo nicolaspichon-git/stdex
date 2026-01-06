@@ -13,7 +13,7 @@
 #include <stdex/negation.h>
 #include <stdex/static_constexpr.h>
 
-#include <Solo/Core/Testing/Printing/testing_ostream.h>// for TestingOstream
+#include "helpers/testing_ostream.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace SoloTests {

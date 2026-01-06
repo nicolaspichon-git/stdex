@@ -9,11 +9,8 @@
 #include <boost/test/unit_test.hpp>
 
 #include <stdex/static_constexpr.h>
-#include <stdex/dataset/static_constexpr_dataset_testsuite.h>
-
-#include <Solo/Core/Testing/Printing/testing_ostream.h>// for TestingOstream
-
-///@todo conjunction, disjunction, negation tests suites
+#include "dataset/static_constexpr_dataset_testsuite.h"
+#include "helpers/testing_ostream.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace SoloTests {

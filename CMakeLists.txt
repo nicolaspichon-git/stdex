@@ -1,3 +1,5 @@
+# stdex/CMakeLists.txt
+
 cmake_minimum_required(VERSION 3.15)
 
 project(stdex
@@ -6,10 +8,21 @@ project(stdex
 )
 
 # ------------------------------------------------------------------------------
-# Library interface
+# C++ requirements (C++14 minimum)
+# ------------------------------------------------------------------------------
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# ------------------------------------------------------------------------------
+# Options
+# ------------------------------------------------------------------------------
+option(STDEX_BUILD_TESTS "Build stdex boost test suite" ON)
+
+# ------------------------------------------------------------------------------
+# stdex header-only library
 # ------------------------------------------------------------------------------
 add_library(stdex INTERFACE)
-
 add_library(stdex::stdex ALIAS stdex)
 
 target_include_directories(stdex
@@ -17,31 +30,36 @@ target_include_directories(stdex
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-
 target_compile_features(stdex
   INTERFACE
     cxx_std_14
 )
 
-
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
 
-# --- Boost dependency
+# --- Boost (headers only, version check only)
+
+set(Boost_NO_BOOST_CMAKE ON)
 find_package(Boost 1.72 REQUIRED)
+
 target_include_directories(stdex
   INTERFACE
     ${Boost_INCLUDE_DIRS}
 )
 
-# --- Eggs.Invoke
-if(EXISTS ${CMAKE_SOURCE_DIR}/external/eggs)
-  add_subdirectory(external/eggs)
-else()
-  find_package(EggsInvoke REQUIRED)
+# --- Eggs.Invoke (implementation / tests only, NOT public)
+
+if(STDEX_BUILD_TESTS)
+  if(EXISTS ${CMAKE_SOURCE_DIR}/external/eggs)
+    add_subdirectory(external/eggs)
+    set(STDEX_EGGS_TARGET Eggs::Invoke)
+  else()
+    find_package(EggsInvoke REQUIRED)
+    set(STDEX_EGGS_TARGET Eggs::Invoke)
+  endif()
 endif()
-target_link_libraries(stdex INTERFACE Eggs::Invoke)
 
 # ------------------------------------------------------------------------------
 # Installation
@@ -81,17 +99,8 @@ install(
 # ------------------------------------------------------------------------------
 # Tests
 # ------------------------------------------------------------------------------
-# option(BUILD_TESTS "Build unit tests" ON)
 
-# if(BUILD_TESTS)
-#   enable_testing()
-
-#   # Ajouter tous les tests dans le répertoire test/
-#   file(GLOB TEST_SOURCES tests/*.cpp)
-#   foreach(test_src ${TEST_SOURCES})
-#     get_filename_component(test_name ${test_src} NAME_WE)
-#     add_executable(${test_name} ${test_src})
-#     target_link_libraries(${test_name} PRIVATE stdex Boost::unit_test_framework)
-#     add_test(NAME ${test_name} COMMAND ${test_name})
-#   endforeach()
-# endif()
+if(STDEX_BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(tests)
+endif()
