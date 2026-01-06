@@ -13,16 +13,9 @@
 #include <stdex/negation.h>
 #include <stdex/static_constexpr.h>
 
-#include "helpers/testing_ostream.h"
-
 ////////////////////////////////////////////////////////////////////////////////
-namespace SoloTests {
+namespace stdex { namespace tests {
 ////////////////////////////////////////////////////////////////////////////////
-
-namespace
-{
-    static ::solo::testing::testing_ostream testout;// local to the current translation unit
-}
 
 BOOST_AUTO_TEST_SUITE( StdexStaticLogicalsTestSuite )
 
@@ -114,5 +107,5 @@ BOOST_AUTO_TEST_CASE( PreliminaryTest )
 BOOST_AUTO_TEST_SUITE_END()
 
 ////////////////////////////////////////////////////////////////////////////////
-}// EONS SOLOTESTS
+}}// EONS stdex::tests
 ////////////////////////////////////////////////////////////////////////////////

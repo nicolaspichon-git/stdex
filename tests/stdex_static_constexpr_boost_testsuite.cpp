@@ -9,18 +9,19 @@
 #include <boost/test/unit_test.hpp>
 
 #include <stdex/static_constexpr.h>
+
 #include "dataset/static_constexpr_dataset_testsuite.h"
 #include "helpers/testing_ostream.h"
 
 ////////////////////////////////////////////////////////////////////////////////
-namespace SoloTests {
+namespace stdex { namespace tests {
 ////////////////////////////////////////////////////////////////////////////////
 
 using namespace StdexStaticConstexprDataset;
 
 namespace
 {
-    static ::solo::testing::testing_ostream testout;// local to the current translation unit
+    static helpers::testing_ostream testout;// local to the current translation unit
 }
 
 BOOST_AUTO_TEST_SUITE( StdexStaticConstexprTestSuite )
@@ -63,5 +64,5 @@ BOOST_AUTO_TEST_CASE( PreliminaryTest )
 BOOST_AUTO_TEST_SUITE_END()
 
 ////////////////////////////////////////////////////////////////////////////////
-}// EONS SOLOTESTS
+}}// EONS stdex::tests
 ////////////////////////////////////////////////////////////////////////////////
