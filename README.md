@@ -17,8 +17,9 @@ target_link_libraries(my_target PRIVATE stdex::stdex)
 
 - C++14 or later
 - CMake ≥ 3.15
-- Boost ≥ 1.72 
-- Eggs.Invoke ≥ 1.0 
+- Optional:
+    - Boost ≥ 1.72 (for stdex::any, stdex::variant, stdex::optional)
+    - Eggs.Invoke ≥ 1.0 (for stdex::invoke)
 
 ## Dependencies
 - Compiles with C++14 compilers and later versions.
