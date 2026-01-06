@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 #include <boost/test/unit_test.hpp>
 
-#include <stdex/static_constexpr.h>
+#include <stdex/static_constexpr.hpp>
+#include <stdex/testing/resettable_ostringstream.hpp>
 
 #include "dataset/static_constexpr_dataset_testsuite.h"
-#include "helpers/testing_ostream.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace stdex { namespace tests {
@@ -21,10 +21,10 @@ using namespace StdexStaticConstexprDataset;
 
 namespace
 {
-    static helpers::testing_ostream testout;// local to the current translation unit
+    static stdex::testing::resettable_ostringstream testout;// local to the current translation unit
 }
 
-BOOST_AUTO_TEST_SUITE( StdexStaticConstexprTestSuite )
+BOOST_AUTO_TEST_SUITE( StdexStaticConstexprBoostTestSuite )
 
 BOOST_AUTO_TEST_CASE( PreliminaryTest )
 {
@@ -39,7 +39,6 @@ BOOST_AUTO_TEST_CASE( PreliminaryTest )
     // should not compile (gn is const) : gn2 = 1;
     auto n3 = static_constexpr<int>::value;
     BOOST_TEST(n3 == gn);
-    n3 = 1;
 
     constexpr auto &ga = static_constexpr<TestObjectA>::value;// mutable but constexpr reference
     testout.reset();

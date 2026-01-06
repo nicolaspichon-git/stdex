@@ -19,6 +19,9 @@
 /// @defgroup stdex_typetraits C++14 missing type traits
 /// @ingroup stdex
 
+/// @defgroup stdex_any C++14 missing any components
+/// @ingroup stdex
+
 /// @defgroup stdex_variant C++14 missing variant components
 /// @ingroup stdex
 
@@ -42,44 +45,47 @@
 
 //..............................................................................
 
-// utility :
-#include <stdex/as_const.h>
-#include <stdex/in_place_t.h>
-#include <stdex/in_place_type_t.h>
+// utility:
+#include <stdex/as_const.hpp>
+#include <stdex/in_place_t.hpp>
+#include <stdex/in_place_type_t.hpp>
 
-// type traits :
-#include <stdex/void_t.h>
-#include <stdex/negation.h>
-#include <stdex/conjunction.h>
-#include <stdex/disjunction.h>
+// type traits:
+#include <stdex/void_t.hpp>
+#include <stdex/negation.hpp>
+#include <stdex/conjunction.hpp>
+#include <stdex/disjunction.hpp>
 
-// optional :
-#include <stdex/optional.h>
+// any:
+#include <stdex/any.hpp>
 
-// variant :
-#include <stdex/variant.h>
+// variant:
+#include <stdex/variant.hpp>
 
-// string view :
-#include <stdex/string_view.h>
+// optional:
+#include <stdex/optional.hpp>
 
-// swappable :
-#include <stdex/is_nothrow_invocable.h>
+// string view:
+#include <stdex/string_view.hpp>
 
-// invocable :
-#include <stdex/is_invocable.h>
-#include <stdex/is_nothrow_invocable.h>
-#include <stdex/invoke_result.h>
-#include <stdex/invoke.h>
+// swappable:
+#include <stdex/is_nothrow_invocable.hpp>
 
-// stl features :
-#include <stdex/cpp_lib_constexpr.h>
+// invocable:
+#include <stdex/is_invocable.hpp>
+#include <stdex/is_nothrow_invocable.hpp>
+#include <stdex/invoke_result.hpp>
+#include <stdex/invoke.hpp>
 
-// experimental :
-#include <stdex/observer_ptr.h>
+// stl features:
+#include <stdex/cpp_lib_constexpr.hpp>
 
-// extensions :
-#include <stdex/static_constexpr.h>
-#include <stdex/null_deleter.h>
-#include <stdex/make_type.h>
+// experimental:
+#include <stdex/observer_ptr.hpp>
+
+// extensions:
+#include <stdex/static_constexpr.hpp>
+#include <stdex/null_deleter.hpp>
+#include <stdex/make_type.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////

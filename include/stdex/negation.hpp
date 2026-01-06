@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #pragma once
 
-#include <stdex/stdex_config.h>
+#include <stdex/stdex_config.hpp>
 
 #if defined(STDEX_USE_STDNS)
 #undef STDEX_USE_STDNS
@@ -19,7 +19,7 @@
 #   include <type_traits>
 #else
 #   // until c++14 :
-#   include <stdex/static_constexpr.h>
+#   include <stdex/static_constexpr.hpp>
 #   include <type_traits>
 #endif
 

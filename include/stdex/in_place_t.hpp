@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #pragma once
 
-#include <stdex/stdex_config.h>
+#include <stdex/stdex_config.hpp>
 
 #if defined(STDEX_USE_STDNS)
 #undef STDEX_USE_STDNS
@@ -19,7 +19,7 @@
 #   include <utility>
 #else
 //  until c++14 :
-#   include <stdex/static_constexpr.h>
+#   include <stdex/static_constexpr.hpp>
 #   include <boost/core/ignore_unused.hpp>
 #endif
 
@@ -33,6 +33,7 @@ namespace stdex
 #else
 
     /// @ingroup stdex_utility
+    /// @see https://en.cppreference.com/w/cpp/utility/in_place.html
     struct in_place_t
     {
         explicit in_place_t() = default;
@@ -43,10 +44,28 @@ namespace stdex
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-variable"
         /// @ingroup stdex_utility
+        /// @see https://en.cppreference.com/w/cpp/utility/in_place.html
+        ///
+        /// Usage:
+        ///
+        /// @code
+        /// #include <iostream>
+        /// #include <string>
+        /// #include <stdex/optional.hpp>
+        ///
+        /// int main()
+        /// {
+        ///     // calls std::string( initializer_list<CharT> ) constructor
+        ///     stdex::optional<std::string> o4(std::in_place, {'a', 'b', 'c'});
+        ///     // calls std::string( size_type count, CharT ch ) constructor
+        ///     stdex::optional<std::string> o5(std::in_place, 3, 'A');
+        ///     std::cout  << *o4 << ' ' << *o5 << '\n';
+        ///}
+        /// @endcode
+        ///
         constexpr auto &in_place = stdex::static_constexpr<in_place_t>::value;
 #pragma GCC diagnostic pop
     }
-
 #endif
 }
 

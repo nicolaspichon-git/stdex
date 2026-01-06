@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #pragma once
 
-#include <stdex/stdex_config.h>
+#include <stdex/stdex_config.hpp>
 
 #if defined(STDEX_STD_STRING_CONSTEXPR)
 #undef STDEX_STD_STRING_CONSTEXPR

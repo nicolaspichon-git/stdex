@@ -12,27 +12,25 @@
 #include <sstream>
 
 ////////////////////////////////////////////////////////////////////////////////
-namespace stdex { namespace tests { namespace helpers {
+namespace stdex { namespace testing {
 ////////////////////////////////////////////////////////////////////////////////
 
-// custom std::ostream-based output stream
-
-/// @ingroup SoloCoreTesting
-/// @brief Ready-to-use std::ostream-based output stream.
+/// @ingroup stdex_nonstandard_testing
+/// @brief Resettable string-buffered std::ostream-based output stream.
 ///
-/// usage :
+/// Usage:
 ///
-///     solo::testing::testing_ostream os;
+///     stdex::testing::resettable_ostringstream os;
 ///     os << x;// x has an overloaded operator << for std::ostream
-///     assert(os.str() == "content x is supposed to output");
+///     assert(os.str() == "x's output");
 ///     os.reset();// empty the os' internal buffer
 ///
-class testing_ostream : public std::ostream// need to be based on std::ostream
+class resettable_ostringstream : public std::ostream// need to be based on std::ostream
 {
 public:
 
-    testing_ostream()
-        : std::ostream(&m_sbuffer)
+    resettable_ostringstream()
+      : std::ostream(&m_sbuffer)
     {}
 
     std::string str() const
@@ -50,5 +48,5 @@ private:
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-}}}// EONS stdex::tests::helpers
+}}// EONS stdex::testing
 ////////////////////////////////////////////////////////////////////////////////

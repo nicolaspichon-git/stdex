@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #include <boost/test/unit_test.hpp>
 
-#include <stdex/is_nothrow_invocable.h>
+#include <stdex/is_nothrow_invocable.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace stdex { namespace tests {
@@ -22,7 +22,7 @@ namespace
 
 //..............................................................................
 
-BOOST_AUTO_TEST_SUITE( StdFunctionalTestSuite )
+BOOST_AUTO_TEST_SUITE( StdexFunctionalBoostTestSuite )
 
 //..............................................................................
 

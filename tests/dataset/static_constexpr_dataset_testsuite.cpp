@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #include <boost/test/unit_test.hpp>
 
-#include <stdex/static_constexpr.h>
+#include <stdex/static_constexpr.hpp>
 #include "dataset/static_constexpr_dataset_testsuite.h"
 
 ////////////////////////////////////////////////////////////////////////////////

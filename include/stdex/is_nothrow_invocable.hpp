@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #pragma once
 
-#include <stdex/stdex_config.h>
+#include <stdex/stdex_config.hpp>
 
 #if defined(STDEX_USE_STDNS)
 #undef STDEX_USE_STDNS
@@ -24,27 +24,27 @@
 
 namespace stdex
 {
-    // -- stdex::invoke/invoke_r
-
 #if defined(STDEX_USE_STDNS)
 
     /// @ingroup stdex_invocable
-    /// @brief The standard @c std::invoke_result .
-    using std::invoke_result;
+    /// @brief The standard @c std::is_nothrow_invocable .
+    using std::is_nothrow_invocable;
 
     /// @ingroup stdex_invocable
-    /// @brief The standard @c std::invoke_result_t .
-    using std::invoke_result_t;
+    /// @brief The standard @c std::is_nothrow_invocable_r .
+    using std::is_nothrow_invocable_r;
 
 #else
 
     /// @ingroup stdex_invocable
-    /// @brief A @c std::invoke_result replacement (waiting for c++17).
-    using eggs::invoke_result;
+    /// @brief A @c std::is_nothrow_invocable replacement (waiting for c++17).
+    /// @note Bad result with c++14 --> ignore noexcept for free functions.
+    using eggs::is_nothrow_invocable;
 
     /// @ingroup stdex_invocable
-    /// @brief A @c std::invoke_result_t replacement (waiting for c++17).
-    using eggs::invoke_result_t;
+    /// @brief A @c std::is_nothrow_invocable_r replacement (waiting for c++17).
+    /// @note Bad result with c++14 --> ignore noexcept for free functions.
+    using eggs::is_nothrow_invocable_r;
 
 #endif
 }

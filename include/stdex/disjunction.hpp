@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #pragma once
 
-#include <stdex/stdex_config.h>
+#include <stdex/stdex_config.hpp>
 
 #if defined(STDEX_USE_STDNS)
 #undef STDEX_USE_STDNS
@@ -19,8 +19,8 @@
 #   include <type_traits>
 #else
 //  until c++14 :
-#   include <stdex/static_constexpr.h>
-#   include <type_traits>
+#   include <stdex/conjunction.hpp>
+#   include <stdex/negation.hpp>
 #endif
 
 
@@ -29,36 +29,24 @@ namespace stdex
 #if defined(STDEX_USE_STDNS)
 
     /// @ingroup stdex_typetraits
-    using std::conjunction;
+    using std::disjunction;
 
     /// @ingroup stdex_typetraits
-    using std::conjunction_v;
+    using std::disjunction_v;
 
 #else
 
-    namespace detail
-    {
-        template < bool... >
-        struct bpack {};
-
-        template < bool... Bs >
-        using bconj = std::is_same< bpack<true,Bs...>, bpack<Bs...,true> >;
-    }
-
     /// @ingroup stdex_typetraits
-    /// @brief @c std::true_type if all @c Bs::value are true (or @c Bs... is empty).
-    /// @note Do not conform exactly STL requirements (all @c Bs::value are instanciated).
-    /// @see https://en.cppreference.com/w/cpp/types/conjunction
+    /// @brief @c std::true_type if @c Bs... is not empty and at least one @c Bs::value is true.
     template < typename... Bs >
-    struct conjunction : public detail::bconj<bool(Bs::value)...>
+    struct disjunction : public negation< conjunction< negation<Bs>... > >
     {};
 
     namespace
     {
         /// @ingroup stdex_typetraits
-        /// @brief Helper variable template.
         template < typename... Bs >
-        constexpr const bool &conjunction_v = (stdex::static_constexpr<conjunction<Bs...>>::value).value;
+        constexpr const bool &disjunction_v = (stdex::static_constexpr<disjunction<Bs...>>::value).value;
     }
 
 #endif

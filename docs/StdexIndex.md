@@ -1,4 +1,4 @@
-Stdex Library
+Stdex Library {#mainpage}
 =============
 
 # Introduction
@@ -40,10 +40,12 @@ The library also provides a few macros or non-standard components for missing la
                 * `stdex::disjunction`
         * string_view:
             * `stdex::string_view` (may use **Boost.Utility**)
+        * any:
+            * `stdex::any` (may use `boost::any` (from **Boost.Any** library in **Boost** &ge; ???))
         * variant:
             * `stdex::variant` (may use `boost::variant2` (from **Boost.Variant2** library in **Boost** &ge; 1.72))
         * optional:
-            * `stdex::optional` (use `boost::optional` until c++17 (from **Boost** library)
+            * `stdex::optional` (use `boost::optional` until c++17 (from **Boost** library &ge; ???)
         * functional:
         * `stdex::invoke` (use `eggs::invoke` until c++17 (from **Eggs.Invoke** library))
 - Experimental features (still not available in standard):

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #pragma once
 
-#include <stdex/stdex_config.h>
+#include <stdex/stdex_config.hpp>
 
 #if defined(STDEX_USE_STDNS)
 #undef STDEX_USE_STDNS
@@ -24,25 +24,27 @@
 
 namespace stdex
 {
+    // -- stdex::invoke/invoke_r
+
 #if defined(STDEX_USE_STDNS)
 
     /// @ingroup stdex_invocable
-    /// @brief The standard @c std::is_invocable .
-    using std::is_invocable;
+    /// @brief The standard @c std::invoke_result .
+    using std::invoke_result;
 
     /// @ingroup stdex_invocable
-    /// @brief The standard @c std::is_invocable_r .
-    using std::is_invocable_t;
+    /// @brief The standard @c std::invoke_result_t .
+    using std::invoke_result_t;
 
 #else
 
     /// @ingroup stdex_invocable
-    /// @brief A @c std::is_invocable replacement (waiting for c++17).
-    using eggs::is_invocable;
+    /// @brief A @c std::invoke_result replacement (waiting for c++17).
+    using eggs::invoke_result;
 
     /// @ingroup stdex_invocable
-    /// @brief A @c std::is_invocable_r replacement (waiting for c++17).
-    using eggs::is_invocable_r;
+    /// @brief A @c std::invoke_result_t replacement (waiting for c++17).
+    using eggs::invoke_result_t;
 
 #endif
 }

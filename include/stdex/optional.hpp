@@ -27,9 +27,8 @@
 namespace stdex
 {
 #if defined(STDEX_USE_STDNS)
-
     /// @ingroup stdex_optional
-    /// @brief The standard @c std::optional .
+    /// @brief The STL's @c std::optional type.
     using std::optional;
 
     /// @ingroup stdex_optional
@@ -38,11 +37,9 @@ namespace stdex
 // TODO :
 //    /// @ingroup stdex_optional
 //    using std::nullopt;
-
 #else
-
     /// @ingroup stdex_optional
-    /// @brief A STL's @c optional replacement (waiting for c++17).
+    /// @brief An STL's @c optional replacement (waiting for c++17).
     using boost::optional;
 
     /// @ingroup stdex_optional
@@ -54,7 +51,6 @@ namespace stdex
 //        /// @ingroup stdex_optional
 //        constexpr const bool &nullopt = stdex::static_constexpr<nullopt_t>::value;
 //    }
-
 #endif
 }
 

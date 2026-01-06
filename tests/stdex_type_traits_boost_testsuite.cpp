@@ -8,16 +8,16 @@
 //------------------------------------------------------------------------------
 #include <boost/test/unit_test.hpp>
 
-#include <stdex/conjunction.h>
-#include <stdex/disjunction.h>
-#include <stdex/negation.h>
-#include <stdex/static_constexpr.h>
+#include <stdex/conjunction.hpp>
+#include <stdex/disjunction.hpp>
+#include <stdex/negation.hpp>
+#include <stdex/static_constexpr.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace stdex { namespace tests {
 ////////////////////////////////////////////////////////////////////////////////
 
-BOOST_AUTO_TEST_SUITE( StdexStaticLogicalsTestSuite )
+BOOST_AUTO_TEST_SUITE( StdexStaticLogicalsBoostTestSuite )
 
 BOOST_AUTO_TEST_CASE( PreliminaryTest )
 {
