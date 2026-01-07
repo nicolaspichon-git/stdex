@@ -17,7 +17,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # ------------------------------------------------------------------------------
 # Options
 # ------------------------------------------------------------------------------
-option(STDEX_BUILD_TESTS "Build stdex boost test suite" ON)
+option(STDEX_BUILD_TESTS "Build stdex boost testsuite" ON)
 
 # ------------------------------------------------------------------------------
 # stdex header-only library

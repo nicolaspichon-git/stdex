@@ -7,44 +7,45 @@ file(GLOB_RECURSE STDEX_TEST_SOURCES
 )
 
 list(REMOVE_ITEM STDEX_TEST_SOURCES
-    "${CMAKE_CURRENT_SOURCE_DIR}/stdex_boost_test_suite_main.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/stdex_boost_testsuite_main.cpp"
 )
 
 # Executable test
-add_executable(stdex_boost_test_suite
-    stdex_boost_test_suite_main.cpp
+add_executable(stdex_boost_testsuite
+    stdex_boost_testsuite_main.cpp
     ${STDEX_TEST_SOURCES}
 )
 
 # include headers
-target_include_directories(stdex_boost_test_suite
+target_include_directories(stdex_boost_testsuite
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/dataset
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/dataset
 )
 
 # Link stdex
-target_link_libraries(stdex_boost_test_suite
+target_link_libraries(stdex_boost_testsuite
     PRIVATE
         stdex
 )
 
-target_compile_features(stdex_boost_test_suite
+target_compile_features(stdex_boost_testsuite
     PRIVATE
         cxx_std_14)
 
-set_target_properties(stdex_boost_test_suite
+set_target_properties(stdex_boost_testsuite
     PROPERTIES
         CXX_EXTENSIONS OFF
 )
 
-target_include_directories(stdex_boost_test_suite
+target_include_directories(stdex_boost_testsuite
     PRIVATE
         ${CMAKE_SOURCE_DIR}/external/eggs/include
 )
 
 # CTest
 add_test(
-    NAME stdex_boost_test_suite
-    COMMAND stdex_boost_test_suite
+    NAME stdex_boost_testsuite
+    COMMAND stdex_boost_testsuite
 )
