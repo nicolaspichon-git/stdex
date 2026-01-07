@@ -6,10 +6,10 @@
 //    (See http://www.boost.org/LICENSE_1_0.txt)
 //
 //------------------------------------------------------------------------------
-#include <boost/test/unit_test.hpp>
 
-#include <stdex/static_constexpr.hpp>
 #include "dataset/static_constexpr_dataset_testsuite.h"
+#include <stdex/static_constexpr.hpp>
+#include <boost/test/unit_test.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace stdex { namespace tests {

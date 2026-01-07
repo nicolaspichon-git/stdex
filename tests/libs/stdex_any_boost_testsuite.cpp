@@ -6,9 +6,9 @@
 //    (See http://www.boost.org/LICENSE_1_0.txt)
 //
 //------------------------------------------------------------------------------
-#include <boost/test/unit_test.hpp>
 
 #include <stdex/any.hpp>
+#include <boost/test/unit_test.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace stdex { namespace tests {
