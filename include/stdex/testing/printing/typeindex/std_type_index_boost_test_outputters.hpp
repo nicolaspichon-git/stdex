@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 #pragma once
 
-#include <Solo/Core/Testing/Printing/typeindex/std_type_index_testing_outputters.h>
+#include <stdex/testing/printing/typeindex/std_type_index_testing_outputters.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////
 
